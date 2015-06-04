@@ -6,4 +6,9 @@ module Evolution
       Cell::Dead
     end
   end
+  class Survive
+    def evolve
+      Cell::Alive
+    end
+  end
 end
