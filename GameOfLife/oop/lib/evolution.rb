@@ -11,4 +11,9 @@ module Evolution
       Cell::Alive
     end
   end
+  class Overcrowding
+    def evolve
+      Cell::Dead
+    end
+  end
 end
