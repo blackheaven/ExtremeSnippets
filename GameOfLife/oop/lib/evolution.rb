@@ -16,4 +16,9 @@ module Evolution
       Cell::Dead
     end
   end
+  class Reproduction
+    def evolve
+      Cell::Alive
+    end
+  end
 end
