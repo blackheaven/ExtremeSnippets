@@ -1,4 +1,4 @@
-module Cell
+module State
   class Dead
     def to_s
       "Dead"

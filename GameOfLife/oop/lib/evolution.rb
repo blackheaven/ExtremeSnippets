@@ -1,24 +1,24 @@
-require 'cell'
+require 'state'
 
 module Evolution
   class Underpopulation
     def evolve
-      Cell::Dead
+      State::Dead
     end
   end
   class Survive
     def evolve
-      Cell::Alive
+      State::Alive
     end
   end
   class Overcrowding
     def evolve
-      Cell::Dead
+      State::Dead
     end
   end
   class Reproduction
     def evolve
-      Cell::Alive
+      State::Alive
     end
   end
 end
