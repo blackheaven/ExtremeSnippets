@@ -12,6 +12,18 @@ describe Cell do
           expect(Cell.new(State::Dead, []).state).to eq(State::Dead)
         end
       end
+      describe 'One neighbour' do
+        describe 'One dead neighbour' do
+          it "should stay dead" do
+            expect(Cell.new(State::Dead, [Cell.new(State::Dead, [])]).state).to eq(State::Dead)
+          end
+        end
+        describe 'One alive neighbour' do
+          it "should stay dead" do
+            expect(Cell.new(State::Dead, [Cell.new(State::Alive, [])]).state).to eq(State::Dead)
+          end
+        end
+      end
     end
   end
 end
