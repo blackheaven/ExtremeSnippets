@@ -4,7 +4,7 @@ def sim_cell(init_state, neighbours_state, expected_state)
   neighbours = neighbours_state.map do |s|
     Cell.new(s, [])
   end
-  expect(Cell.new(init_state, neighbours).state).to eq(expected_state)
+  expect(Cell.new(init_state, neighbours).evolve.state).to eq(expected_state)
 end
 
 describe Cell do
@@ -28,6 +28,25 @@ describe Cell do
         describe 'One alive neighbour' do
           it "should stay dead" do
             sim_cell(State::Dead, [State::Alive], State::Dead)
+          end
+        end
+      end
+    end
+    describe 'Alive cell' do
+      describe 'No neighbours' do
+        it "should die" do
+            sim_cell(State::Alive, [], State::Dead)
+        end
+      end
+      describe 'One neighbour' do
+        describe 'One dead neighbour' do
+          it "should die" do
+            sim_cell(State::Alive, [State::Dead], State::Dead)
+          end
+        end
+        describe 'One alive neighbour' do
+          it "should die" do
+            sim_cell(State::Alive, [State::Alive], State::Dead)
           end
         end
       end

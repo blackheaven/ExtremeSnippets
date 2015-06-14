@@ -7,4 +7,8 @@ class Cell
     @state = state
     @neighbours = neighbours
   end
+
+  def evolve
+    Cell.new(State::Dead, [])
+  end
 end
