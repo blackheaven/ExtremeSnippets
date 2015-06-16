@@ -22,6 +22,9 @@ describe Cell do
       it 'Three alive neighbours should get to life' do
           sim_cell(State::Dead, [State::Alive, State::Alive, State::Alive], State::Alive)
       end
+      it 'Four alive neighbours should stay dead' do
+          sim_cell(State::Dead, [State::Alive, State::Alive, State::Alive, State::Alive], State::Dead)
+      end
     end
     describe 'Alive cell' do
       it 'No alive neighbours should die' do
@@ -35,6 +38,9 @@ describe Cell do
       end
       it 'Three alive neighbours should stay alive' do
           sim_cell(State::Alive, [State::Alive, State::Alive, State::Alive], State::Alive)
+      end
+      it 'Four alive neighbours should die' do
+          sim_cell(State::Alive, [State::Alive, State::Alive, State::Alive, State::Alive], State::Dead)
       end
     end
   end
